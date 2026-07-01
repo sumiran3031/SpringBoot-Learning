@@ -1,0 +1,14 @@
+# Base image — Java 17
+FROM eclipse-temurin:17-jdk-alpine
+
+# Working directory set karo container mein
+WORKDIR /app
+
+# JAR file copy karo
+COPY target/jpa-h2-database-0.0.1-SNAPSHOT.jar app.jar
+
+# Port expose karo
+EXPOSE 8080
+
+# App run karo
+ENTRYPOINT ["java", "-jar", "app.jar"]
